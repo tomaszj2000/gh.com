@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        var tab1 = []
+        for (i = 0; i < 40000; i++) {
+            tab1[i] = Math.floor(Math.random() * 1000 + 1)
+        }
+
+        function babelkowe(tab1) {
+            var tab2 = []
+            for (i = 0; i < tab1.length; i++) {
+                tab2[i] = tab1[i]
+            }
+            var d1 = new Date();
+            var data1 = d1.getTime()
+            var x
+            for (i = 0; i < tab2.length; i++) {
+                for (j = 1; j < tab2.length; j++) {
+                    if (tab2[j - 1] > tab2[j]) {
+                        x = tab2[j]
+                        tab2[j] = tab2[j - 1]
+                        tab2[j - 1] = x
+                    }
+                }
+            }
+
+            var d2 = new Date();
+            var data2 = d2.getTime()
+
+            var suma1 = data2 - data1
+
+            var c = document.getElementById("one")
+
+            c.innerHTML = ("Wynik: " + suma1 / 1000)
+        }
+
+        function wstawianie(tab1) {
+            var tab2 = []
+            for (i = 0; i < tab1.length; i++) {
+                tab2[i] = tab1[i]
+            }
+            var d1 = new Date();
+            var data1 = d1.getTime()
+
+            var a, b
+            for (j = tab2.length - 2; j >= 0; j--) {
+                a = tab2[j];
+                b = j + 1;
+                while ((b < tab2.length) && (a > tab2[b])) {
+                    tab2[b - 1] = tab2[b];
+                    b++;
+                }
+                tab2[b - 1] = a;
+            }
+
+            var d2 = new Date();
+            var data2 = d2.getTime()
+
+            var suma1 = data2 - data1
+
+            var c2 = document.getElementById("two")
+
+            c2.innerHTML = ("Wynik: " + suma1 / 1000)
+        }
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <button onclick="babelkowe(tab1)">Babelkowe</button>
+        <div id="one">Wynik: </div>
+    </div>
+    <div>
+        <button onclick="wstawianie(tab1)">Wstawianie</button>
+        <div id="two">Wynik: </div>
+    </div>
+</body>
+
+</html>
