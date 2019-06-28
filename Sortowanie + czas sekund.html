@@ -10,13 +10,19 @@
             tab1[i] = Math.floor(Math.random() * 1000 + 1)
         }
 
-        function babelkowe(tab1) {
+        function new_tab2(tab1) {
             var tab2 = []
             for (i = 0; i < tab1.length; i++) {
                 tab2[i] = tab1[i]
             }
+            return tab2
+        }
+
+        function babelkowe(tab1) {
+            var tab2 = new_tab2(tab1) //Funkcja przypisująca wartość tab1 do nowej tab2.
+
             var d1 = new Date();
-            var data1 = d1.getTime()
+            var date_1 = d1.getTime()
             var x
             for (i = 0; i < tab2.length; i++) {
                 for (j = 1; j < tab2.length; j++) {
@@ -29,22 +35,20 @@
             }
 
             var d2 = new Date();
-            var data2 = d2.getTime()
+            var date_2 = d2.getTime()
 
-            var suma1 = data2 - data1
+            var sum = date_2 - date_1
 
-            var c = document.getElementById("one")
+            var sum_get = document.getElementById("one")
 
-            c.innerHTML = ("Wynik: " + suma1 / 1000)
+            sum_get.innerHTML = ("Sum: " + sum / 1000)
         }
 
         function wstawianie(tab1) {
-            var tab2 = []
-            for (i = 0; i < tab1.length; i++) {
-                tab2[i] = tab1[i]
-            }
+            var tab2 = new_tab2(tab1)
+
             var d1 = new Date();
-            var data1 = d1.getTime()
+            var date_1 = d1.getTime()
 
             var a, b
             for (j = tab2.length - 2; j >= 0; j--) {
@@ -58,13 +62,13 @@
             }
 
             var d2 = new Date();
-            var data2 = d2.getTime()
+            var date_2 = d2.getTime()
 
-            var suma1 = data2 - data1
+            var sum = date_2 - date_1
 
-            var c2 = document.getElementById("two")
+            var sum_get = document.getElementById("two")
 
-            c2.innerHTML = ("Wynik: " + suma1 / 1000)
+            sum_get.innerHTML = ("Sum: " + sum / 1000)
         }
 
     </script>
@@ -73,11 +77,11 @@
 <body>
     <div>
         <button onclick="babelkowe(tab1)">Babelkowe</button>
-        <div id="one">Wynik: </div>
+        <div id="one">Sum: </div>
     </div>
     <div>
         <button onclick="wstawianie(tab1)">Wstawianie</button>
-        <div id="two">Wynik: </div>
+        <div id="two">Sum: </div>
     </div>
 </body>
 
