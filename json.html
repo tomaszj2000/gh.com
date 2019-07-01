@@ -128,11 +128,8 @@
         var tab1 = []
         //Sortowanie: 1.Czas końcowy
         copy.sort(function(a, b) {
-            return a.end_time.localeCompare(b.end_time)
+            return a.start_time.localeCompare(b.start_time)
         })
-
-        //        for (i = 0; i < copy.length; i++) { // document.write("End time: " + copy[i].end_time + " <br>" + "ID_P: " + copy[i].parent_id + "<br>" + "ID: " + copy[i].id + "<br>" + "Start time: " + copy[i].start_time + "<br><br>")
-        // }
 
         for (i = 0; i < copy.length; i++) {
             tab1[i] = {
@@ -146,9 +143,48 @@
             }
         }
 
-        for (i = 0; i < copy.length; i++) {
-            document.write(tab1[i].end_time + "<br>")
+        for (i = 0; i < tab1.length; i++) {
+            document.write(tab1[i].start_time + "<br>")
         }
+        document.write("<br><br>")
+        for (i = 0; i < tab1.length;) {
+            for (j = 0; j < tab1.length; j++) {
+                if (tab1[0].start_time === tab1[j].start_time) {
+                    var a = a + 1
+                }
+            }
+            if (tab1[i].start_time == tab1[i + 1].start_time) {
+                document.write(tab1[i].start_time + " - " + tab1[i].name + "<br>")
+                i++
+            }
+            if (tab1[i + 1].start_time > tab1[i].start_time) {
+                document.write(tab1[i].start_time + " - " + tab1[i].name + "<br>")
+                document.write("<br><br>")
+                i++
+            }
+        }
+//                for (i = 0; i < copy.length; i++) { // if (tab1[i].assignee==="Jan Kowalski" ) { // tab1[i].parent_id=10 // } // if (tab1[i].parent_id !==Number) // tab1[i].parent_id=parseInt(tab1[i].parent_id) // }
+        //        for (i = 0; i < tab1.length; i++) {
+        //            document.write(typeof tab1[i].parent_id + "<br>")
+        //        }
+
+        //        for (i = 0; i < copy.length; i++) {
+        //            document.write(tab1[i].parent_id + "<br>")
+        //        }
+        //
+        //        document.write("<br><br>")
+        //
+        //        var tab2 = []
+        //
+        //        for (i = 0; i < tab1.length; i++) {
+        //            tab2[i] = tab1[i].parent_id
+        //        }
+        //
+        //        tab2.sort()
+        //
+        //        for (i = 0; i < copy.length; i++) {
+        //            document.write(tab2[i] + "<br>")
+        //        }
 
     </script>
 </head>
